@@ -18,7 +18,7 @@ MyServices myServices=Get.find();
   next() {
     currentpage++;
     if(currentpage>onboardinglist.length-1){
-myServices.sharedPreferences.setString("onboarding","1");
+myServices.sharedPreferences.setString("step","1");
       Get.offAllNamed(AppRoutes.login);
     }else{
     pageController.animateToPage(currentpage, duration:const Duration(milliseconds: 900), curve:Curves.easeInOut);

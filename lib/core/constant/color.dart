@@ -5,4 +5,5 @@ class AppColor{
   static const Color primarycolor=Color(0xff5DB1DF);
   static const Color black=Colors.black;
   static const Color backgroundcolor = Color(0xffF8F9FD) ;
+  static const Color favoritecolor=Colors.pinkAccent;
 }

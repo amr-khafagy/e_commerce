@@ -1,7 +1,7 @@
 import 'package:ecommerce/controller/auth/forgetpassword/verifycode.dart';
+import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/login/bodytextauth.dart';
-import 'package:ecommerce/view/widget/login/tittletextauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
@@ -29,30 +29,32 @@ class VerifyCode extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 15),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
+          child:GetBuilder<VerifyCodeControllIMP>(builder: (controller){
+            return HandlingDataView(statuesRequest: controller.statuesRequest, widget: Column(
+              children: [
 
-               BodyTextAuth(
-                bodytextauth: "39".tr,
-              ),
-              OtpTextField(
-                borderRadius: BorderRadius.circular(20),
-                fieldWidth: 50,
-                numberOfFields: 5,
-                borderColor:AppColor.primarycolor,
-                //set to true to show as box or false to show as dash
-                showFieldAsBox: true,
-                //runs when a code is typed in
-                onCodeChanged: (String code) {
-                  //handle validation or checks here
-                },
-                //runs when every textfield is filled
-                onSubmit: (String verificationCode){
-                  controller.gotoresetpassword();
-                }, // end onSubmit
-              ),
-            ],
-          ),
+                BodyTextAuth(
+                  bodytextauth: "39".tr,
+                ),
+                OtpTextField(
+                  borderRadius: BorderRadius.circular(20),
+                  fieldWidth: 50,
+                  numberOfFields: 5,
+                  borderColor:AppColor.primarycolor,
+                  //set to true to show as box or false to show as dash
+                  showFieldAsBox: true,
+                  //runs when a code is typed in
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
+                  },
+                  //runs when every textfield is filled
+                  onSubmit: (String verificationCode){
+                    controller.gotoresetpassword(verificationCode);
+                  }, // end onSubmit
+                ),
+              ],
+            ),);
+          },)
         ),
       )),
     );

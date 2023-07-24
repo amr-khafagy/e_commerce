@@ -1,4 +1,7 @@
+import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/core/function/handlingdata.dart';
+import 'package:ecommerce/data/datasource/remote/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,20 +15,39 @@ class SignUpControllIMP extends SignUpControll {
   late TextEditingController email;
   late TextEditingController phonenumber;
   late TextEditingController password;
-  late TextEditingController confirmpassword;
-  bool isshowpassword=true;
- GlobalKey<FormState>formstate=GlobalKey<FormState>();
+  bool isshowpassword = true;
+  StatuesRequest statuesRequest = StatuesRequest.none;
+  SignUpData signUpData = SignUpData(crud: Get.find());
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  List data = [];
+
   @override
-  signup() {
-if(formstate.currentState!.validate()){
-  Get.offNamed(AppRoutes.verifycodesignup);
-  Get.delete<SignUpControllIMP>();
-}
+  signup() async {
+    if (formstate.currentState!.validate()) {
+      statuesRequest = StatuesRequest.loading;
+      update();
+      var response = await signUpData.postData(
+          username.text, password.text, email.text, phonenumber.text);
+      statuesRequest = await handlingData(response);
+      if (StatuesRequest.success == statuesRequest) {
+        if (response['status'] == "success") {
+          Get.offNamed(AppRoutes.verifycodesignup,
+              arguments: {"email": email.text});
+        } else {
+          Get.defaultDialog(title: "48".tr, middleText: "52".tr);
+          statuesRequest = StatuesRequest.failure;
+        }
+      }
+
+      update();
+    } else {}
   }
-showpassword(){
-    isshowpassword=isshowpassword==true?false:true;
+
+  showpassword() {
+    isshowpassword = isshowpassword == true ? false : true;
     update();
-}
+  }
+
   @override
   togologin() {
     Get.offNamed(AppRoutes.login);
@@ -37,7 +59,6 @@ showpassword(){
     email = TextEditingController();
     phonenumber = TextEditingController();
     password = TextEditingController();
-    confirmpassword = TextEditingController();
     super.onInit();
   }
 
@@ -47,7 +68,6 @@ showpassword(){
     email.dispose();
     phonenumber.dispose();
     password.dispose();
-    confirmpassword.dispose();
     super.dispose();
   }
 }
