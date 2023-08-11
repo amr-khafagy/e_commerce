@@ -1,7 +1,5 @@
 import 'package:ecommerce/controller/favourite/favouriteview.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/view/widget/Home/customappbar.dart';
-import 'package:ecommerce/view/widget/favourite/favouriteitems.dart';
 import 'package:ecommerce/view/widget/favourite/listfavouriteitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,11 +16,6 @@ class Favourite extends StatelessWidget {
         child: GetBuilder<FavouriteViewControllIMP>(
           builder: (controller) {
             return ListView(children: [
-              // CustomAppBar(
-              //   onPressedfavourite: () {},
-              //   searchtext: "54".tr,
-              //   onPressedSearch: () {},
-              // ),
              const SizedBox(height:10),
               HandlingDataView(
                   statuesRequest: controller.statuesRequest,

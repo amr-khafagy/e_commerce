@@ -12,7 +12,10 @@ static const String checkemail="$serverlink/forgetenpassword/checkemail.php";
 static const String verifycode="$serverlink/forgetenpassword/verifycode.php";
 static const String resetpassword="$serverlink/forgetenpassword/resetpassword.php";
 //home
-static const String homepage="$serverlink/home.php";
+static const String homepage="$serverlink/home/home.php";
+ static const String itemsHomepage="$serverlink/home/items.php";
+ static const String homeBanner="$serverlink/home/setting.php";
+
 //image
 static const String categoriesimage="$imageserve/categories";
 static const String itemssimage="$imageserve/items";
@@ -34,4 +37,18 @@ static const String addaddress="$serverlink/address/add.php";
  static const String deleteaddress="$serverlink/address/delete.php";
  static const String viewaddress="$serverlink/address/view.php";
  static const String editaddress="$serverlink/address/edit.php";
+ //coupon
+ static const String checkCoupon="$serverlink/coupon/checkcoupon.php";
+//orders
+ static const String checkOut="$serverlink/orders/checkout.php";
+ static const String pending="$serverlink/orders/orders.php";
+ static const String orderDetails="$serverlink/orders/details.php";
+ static const String deleteOrders="$serverlink/orders/delete.php";
+ static const String archieve="$serverlink/orders/archieve.php";
+ static const String rating="$serverlink/rating.php";
+ //notification
+ static const String notification="$serverlink/notification.php";
+ //offers
+ static const String offers="$serverlink/offers.php";
+
 }

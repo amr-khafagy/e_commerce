@@ -40,6 +40,7 @@ class CompleteAddingController extends GetxController {
     if (StatuesRequest.success == statuesRequest) {
       if (response["status"] == "success") {
         Get.offAllNamed(AppRoutes.homepage);
+        Get.snackbar("Success", "You can Order to this address Now ");
       }else{
         statuesRequest=StatuesRequest.failure;
       }

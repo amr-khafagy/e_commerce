@@ -10,38 +10,45 @@ class AddAddressController extends GetxController {
   Position? position;
   Completer<GoogleMapController> completerController =
       Completer<GoogleMapController>();
-StatuesRequest statuesRequest=StatuesRequest.loading;
+  StatuesRequest statuesRequest = StatuesRequest.loading;
   CameraPosition? kGooglePlex;
-List<Marker> markers=[];
-double? lat;
-double? long;
-  goToCompleteAddress(){
-    Get.toNamed(AppRoutes.completeAddress,arguments: { "lat":lat.toString(),"long":long.toString()});
+  List<Marker> markers = [];
+  double? lat;
+  double? long;
+
+  goToCompleteAddress() {
+    Get.toNamed(AppRoutes.completeAddress,
+        arguments: {"lat": lat.toString(), "long": long.toString()});
   }
-addMarkers(LatLng latLng){
-  markers.clear();
-markers.add(Marker(markerId:const MarkerId("1"),position:latLng));
-lat=latLng.latitude;
-long=latLng.longitude;
-update();
+
+  addMarkers(LatLng latLng) {
+    markers.clear();
+    markers.add(Marker(markerId: const MarkerId("1"), position: latLng));
+    lat = latLng.latitude;
+    long = latLng.longitude;
+    update();
   }
+
   CameraPosition kLake = const CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(37.43296265331129, -122.08832357078792),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
-  getCurrentLocation() async{
-    position=await Geolocator.getCurrentPosition();
-    kGooglePlex=CameraPosition(
-      target: LatLng(position!.latitude,position!.longitude),
+
+  getCurrentLocation() async {
+    position = await Geolocator.getCurrentPosition();
+    kGooglePlex = CameraPosition(
+      target: LatLng(position!.latitude, position!.longitude),
       zoom: 14.4746,
     );
-    statuesRequest=StatuesRequest.none;
+    addMarkers(LatLng(position!.latitude, position!.longitude));
+    statuesRequest = StatuesRequest.none;
     update();
   }
+
   @override
   void onInit() {
-   getCurrentLocation();
+    getCurrentLocation();
     completerController = Completer<GoogleMapController>();
     super.onInit();
   }

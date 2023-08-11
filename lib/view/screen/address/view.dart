@@ -3,6 +3,7 @@ import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/addressmodel.dart';
+import 'package:ecommerce/view/widget/cart/cart_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,6 @@ class AddressView extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ViewController());
     return Scaffold(
-      appBar: AppBar(title: const Text("List Of Address")),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Get.toNamed(AppRoutes.addressadd);
@@ -22,23 +22,28 @@ class AddressView extends StatelessWidget {
       body: GetBuilder<ViewController>(builder: (viewController) {
         return HandlingDataView(
             statuesRequest: viewController.statuesRequest,
-            widget: ListView.builder(
-                itemCount: viewController.data.length,
-                itemBuilder: (context, index) {
-                  return ViewAddressCard(
-                    addressModel: viewController.data[index],
-                    onDelete: () {
-                      Get.defaultDialog(
-                          title: "Warning",
-                          middleText: "Do You Want To Delete This Address",
-                          onConfirm: () {
-                            viewController.deleteAddress(
-                                viewController.data[index].addressId!);
-                          });
-
-                    },
-                  );
-                }));
+            widget: Column(
+              children: [
+                const CartAppBar(tittle: "List Of Address"),
+                ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: viewController.data.length,
+                    itemBuilder: (context, index) {
+                      return ViewAddressCard(
+                        addressModel: viewController.data[index],
+                        onDelete: () {
+                          Get.defaultDialog(
+                              title: "Warning",
+                              middleText: "Do You Want To Delete This Address",
+                              onConfirm: () {
+                                viewController.deleteAddress(
+                                    viewController.data[index].addressId!);
+                              });
+                        },
+                      );
+                    }),
+              ],
+            ));
       }),
     );
   }

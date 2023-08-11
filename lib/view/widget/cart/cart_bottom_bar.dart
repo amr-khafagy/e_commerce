@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/cart/cart_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/screen/setting/settingdivider.dart';
 import 'package:ecommerce/view/widget/cart/coupon.dart';
 import 'package:ecommerce/view/widget/cart/row_bottom_bar.dart';
@@ -14,14 +15,25 @@ class CartBottomBar extends StatelessWidget {
     Get.put(CartControllerIMP());
     return GetBuilder<CartControllerIMP>(builder: (controller) {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
-            CouponCode(
-              couponController: controller.couponController,
-              onCouponApply: () {},
+            controller.couponCode == null
+                ? CouponCode(
+                    couponController: controller.couponController,
+                    onCouponApply: () {
+                      controller.getCoupon();
+                    },
+                  )
+                : Text(
+                    "Your code ${controller.couponCode} has been activated",
+                    style: const TextStyle(
+                        color: AppColor.primarycolor, fontSize: 20),
+                  ),
+            const SizedBox(
+              height: 10,
             ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -37,17 +49,16 @@ class CartBottomBar extends StatelessWidget {
                       titleOfPrice: "Price",
                     ),
                     CartRowBottomBar(
-                      price: "${controller.priceitems *(10/100)}",
+                      price: "${controller.discountCoupon}%",
                       titleOfPrice: "discount",
                     ),
-                    CartRowBottomBar(
-                      price: "${controller.priceitems / 2}",
+                    const CartRowBottomBar(
+                      price: "10",
                       titleOfPrice: "Shipping",
                     ),
                     const SettingDivider(),
                     CartRowBottomBar(
-                      price:
-                      "${controller.priceitems - controller.priceitems / 2}",
+                      price: "${controller.returnDiscount()}",
                       titleOfPrice: "Total",
                     ),
                   ]),
@@ -56,7 +67,9 @@ class CartBottomBar extends StatelessWidget {
               horizontal: 5,
               vertical: 7,
               nameButton: "place order",
-              onPressButton: () {},
+              onPressButton: () {
+                controller.gotoOrders();
+              },
             )
           ],
         ),
@@ -71,11 +84,12 @@ class CartButton extends StatelessWidget {
   final String nameButton;
   final void Function()? onPressButton;
 
-  const CartButton({Key? key,
-    required this.horizontal,
-    required this.vertical,
-    required this.nameButton,
-    this.onPressButton})
+  const CartButton(
+      {Key? key,
+      required this.horizontal,
+      required this.vertical,
+      required this.nameButton,
+      this.onPressButton})
       : super(key: key);
 
   @override

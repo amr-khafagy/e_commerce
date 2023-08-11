@@ -1,6 +1,5 @@
 import 'package:ecommerce/controller/auth/signup_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:ecommerce/core/function/appexit.dart';

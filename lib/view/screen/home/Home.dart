@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeControllerIMP>(
         builder: (controller) => SafeArea(
               child: Scaffold(
-                floatingActionButton:const FavouriteFloatingButton(),
+                floatingActionButton: const FavouriteFloatingButton(),
                 body: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListView(
@@ -46,14 +46,16 @@ class HomePage extends StatelessWidget {
                                 )
                               : Column(
                                   children: [
-                                    CashBackContainer(
-                                        tittle: "57".tr, body: "58".tr),
+                                    if (controller.homeBanner.isNotEmpty)
+                                      CashBackContainer(
+                                          tittle: controller.homeBanner[0]
+                                              ["banner_title"],
+                                          body: controller.homeBanner[0]
+                                              ["banner_desc"]),
                                     CustomTittleHome(tittle: "53".tr),
                                     const ListCategoriesHome(),
                                     CustomTittleHome(tittle: "55".tr),
                                     const ItemsHome(),
-                                    CustomTittleHome(tittle: "56".tr),
-                                    const ItemsHome()
                                   ],
                                 ))
                     ],

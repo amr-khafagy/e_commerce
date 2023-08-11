@@ -1,4 +1,3 @@
-import 'package:ecommerce/controller/address/addcontroller.dart';
 import 'package:ecommerce/controller/address/completeadding.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/view/widget/login/buttonauth.dart';
@@ -23,7 +22,7 @@ class CompleteAdding extends StatelessWidget {
               builder: (completeAddingController) {
             return  Padding(
                   padding: const EdgeInsets.all(15),
-                  child: ListView(
+                  child: HandlingDataView(statuesRequest: completeAddingController.statuesRequest, widget:ListView(
                     children: [
                       TextFormFieldAuth(
                           textlabelauth: "City",
@@ -53,7 +52,7 @@ class CompleteAdding extends StatelessWidget {
                         },
                       )
                     ],
-                  ),
+                  ),)
                 );
           }),
         ));

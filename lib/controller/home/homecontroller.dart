@@ -22,6 +22,7 @@ class HomeControllerIMP extends HomeController {
   HomeData homeData = HomeData(Get.find());
   List categories = [];
   List items = [];
+  List homeBanner = [];
   late StatuesRequest statuesRequest = StatuesRequest.none;
   String? username;
   String? id;
@@ -32,7 +33,7 @@ class HomeControllerIMP extends HomeController {
 
   checkSearch(val) {
     if (val == "") {
-      statuesRequest=StatuesRequest.none;
+      statuesRequest = StatuesRequest.none;
       isSearch = false;
     }
     update();
@@ -52,14 +53,46 @@ class HomeControllerIMP extends HomeController {
   }
 
   @override
-  getData() async {
+  getDataItems() async {
     statuesRequest = StatuesRequest.loading;
-    var response = await homeData.getData();
+    var response = await homeData.getDataItems();
+    print("=============================== Controller ${response['data']} ");
     statuesRequest = handlingData(response);
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
-        categories.addAll(response['categories']);
-        items.addAll(response['items']);
+        items.addAll(response['data']);
+      } else {
+        statuesRequest = StatuesRequest.failure;
+      }
+    }
+    update();
+  }
+
+  @override
+  getHomeBanner() async {
+    statuesRequest = StatuesRequest.loading;
+    var response = await homeData.getBanner();
+    print("=============================== Controller ${response['data']} ");
+    statuesRequest = handlingData(response);
+    if (StatuesRequest.success == statuesRequest) {
+      if (response['status'] == "success") {
+        homeBanner.addAll(response['data']);
+      } else {
+        statuesRequest = StatuesRequest.failure;
+      }
+    }
+    update();
+  }
+
+  @override
+  getData() async {
+    statuesRequest = StatuesRequest.loading;
+    var response = await homeData.getDataCategories();
+    print("=============================== Controller ${response['data']} ");
+    statuesRequest = handlingData(response);
+    if (StatuesRequest.success == statuesRequest) {
+      if (response['status'] == "success") {
+        categories.addAll(response['data']);
       } else {
         statuesRequest = StatuesRequest.failure;
       }
@@ -97,12 +130,18 @@ class HomeControllerIMP extends HomeController {
   goToFavourite() {
     Get.toNamed(AppRoutes.favourite);
   }
+
   goToProductDetails(ItemsModel itemsModel) {
-    Get.toNamed(AppRoutes.productDetails,arguments: {"itemsmodel":itemsModel});
-  }  @override
+    Get.toNamed(AppRoutes.productDetails,
+        arguments: {"itemsmodel": itemsModel});
+  }
+
+  @override
   void onInit() {
     search = TextEditingController();
+    getHomeBanner();
     getData();
+    getDataItems();
     initialData();
     super.onInit();
   }

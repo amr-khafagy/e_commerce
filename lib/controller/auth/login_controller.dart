@@ -36,6 +36,7 @@ class LoginControllIMP extends LoginControll {
           if (response['data']['approve'] == '1') {
             myServices.sharedPreferences
                 .setString("id", response['data']['id']);
+            String userid=myServices.sharedPreferences.getString("id")!;
             myServices.sharedPreferences
                 .setString("username", response['data']['username']);
             myServices.sharedPreferences
@@ -43,6 +44,9 @@ class LoginControllIMP extends LoginControll {
             myServices.sharedPreferences
                 .setString("phone", response['data']['phone']);
             myServices.sharedPreferences.setString("step", '2');
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+
             Get.offNamed(AppRoutes.homepage);
           } else {
             Get.toNamed(AppRoutes.verifycodesignup,

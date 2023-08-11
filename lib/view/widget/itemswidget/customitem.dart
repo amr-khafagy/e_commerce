@@ -1,4 +1,4 @@
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/favourite/favourite_controller.dart';
 import 'package:ecommerce/controller/items/itemscontroller.dart';
 import 'package:ecommerce/core/constant/color.dart';
@@ -7,6 +7,7 @@ import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/data/model/itemmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CustomItem extends GetView<ItemsControllerIMP> {
@@ -29,8 +30,9 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(
-                    "${AppLinks.itemssimage}/${itemsModel.itemsImage!}",
+                  CachedNetworkImage(
+                    imageUrl:
+                        "${AppLinks.itemssimage}/${itemsModel.itemsImage!}",
                     height: 80,
                   ),
                   //TODO CachedNetworkImage
@@ -46,18 +48,6 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                         textAlign: TextAlign.center,
                         style: const TextStyle(fontSize: 15),
                       ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ...List.generate(
-                              5,
-                                  (index) => const Icon(
-                                Icons.star,
-                                color: AppColor.favoritecolor,
-                                size: 15,
-                              ))
-                        ],
-                      )
                     ],
                   ),
                   Row(
@@ -69,34 +59,39 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                       ),
                       GetBuilder<FavouriteControllerIMP>(
                           builder: (controller) => IconButton(
-                            onPressed: () {
-                              if (controller.isfavourite[itemsModel.itemsId] ==
-                                  "1") {
-                                controller.setfavourite(itemsModel.itemsId,"0");
-                                controller.removefavourite(itemsModel.itemsId!);
-                              } else {
-                                controller.setfavourite(itemsModel.itemsId,"1");
-                                controller.addfavourite(itemsModel.itemsId!);
-                              }
-                            },
-                            icon: controller.isfavourite[itemsModel.itemsId] ==
-                                "1"
-                                ? const Icon(Icons.favorite_outlined)
-                                : const Icon(Icons.favorite_outline),
-                            color: AppColor.favoritecolor,
-                          ))
+                                onPressed: () {
+                                  if (controller
+                                          .isfavourite[itemsModel.itemsId] ==
+                                      "1") {
+                                    controller.setfavourite(
+                                        itemsModel.itemsId, "0");
+                                    controller
+                                        .removefavourite(itemsModel.itemsId!);
+                                  } else {
+                                    controller.setfavourite(
+                                        itemsModel.itemsId, "1");
+                                    controller
+                                        .addfavourite(itemsModel.itemsId!);
+                                  }
+                                },
+                                icon: controller
+                                            .isfavourite[itemsModel.itemsId] ==
+                                        "1"
+                                    ? const Icon(Icons.favorite_outlined)
+                                    : const Icon(Icons.favorite_outline),
+                                color: AppColor.favoritecolor,
+                              ))
                     ],
                   )
                 ],
               ),
             ),
-if(itemsModel.itemsDiscount!="0")
-   Positioned(
-    top: 4,
-    left: 4,
-     child: Image.asset(AppImageAsset.saleimage,width: 70,),
-  )
-
+            if (itemsModel.itemsDiscount != "0")
+              Positioned(
+                top: 4,
+               right: 0,
+                child: Container(child: Image.asset(AppImageAsset.saleimage,width: 70,height: 70)),
+              )
           ],
         ),
       ),

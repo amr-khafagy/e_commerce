@@ -1,4 +1,5 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
@@ -19,7 +20,7 @@ class SuggestedItem extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 10),
           height: 100,
           width: 150,
-          child: Image.network(
+          child: CachedNetworkImage(imageUrl:
               "${AppLinks.itemssimage}/${itemsModel.itemsImage}"),
         ),
         Container(

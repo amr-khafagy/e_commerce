@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartAppBar extends StatelessWidget {
-  const CartAppBar({Key? key}) : super(key: key);
+  final String tittle;
+  const CartAppBar({Key? key, required this.tittle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        "My Cart",
-        style: TextStyle(
+      title:  Text(
+        tittle,
+        style:const TextStyle(
             color: AppColor.grey, fontSize: 30, fontWeight: FontWeight.bold),
       ),
       backgroundColor: AppColor.backgroundcolor,

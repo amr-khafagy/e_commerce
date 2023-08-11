@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/productdetails/productdetails_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
@@ -23,8 +24,8 @@ class PositionedImage extends GetView<ProductDetailsControllerIMP> {
           left: Get.width / 8,
           child: Hero(
               tag: "${controller.itemsModel.itemsId}",
-              child: Image.network(
-                '${AppLinks.itemssimage}/${controller.itemsModel.itemsImage!}',
+              child: CachedNetworkImage(
+                imageUrl: '${AppLinks.itemssimage}/${controller.itemsModel.itemsImage!}',
                 height: 250,
                 fit: BoxFit.fill,
               )),

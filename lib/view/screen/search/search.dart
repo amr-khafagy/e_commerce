@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/home/homecontroller.dart';
+import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/data/model/itemmodel.dart';
 import 'package:flutter/material.dart';
@@ -13,18 +14,23 @@ class ListItemSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeControllerIMP controllerIMP=Get.put(HomeControllerIMP());
+Get.put(HomeControllerIMP());
     return ListView.builder(
       itemBuilder: (context, index) {
-        return InkWell(
-          onTap:(){controllerIMP.goToProductDetails(listsearchmodel[index]);},
-          child: ListTile(
-            leading: CachedNetworkImage(
-               imageUrl: "${AppLinks.itemssimage}/${listsearchmodel[index].itemsImage}",height: 50,width: 50,),
-            title: Text("${listsearchmodel[index].itemsName}"),
-            subtitle: Text("${listsearchmodel[index].itemsPrice}\$"),
-          ),
-        );
+        return GetBuilder<HomeControllerIMP>(builder: (controllerIMP) {
+          return HandlingDataView(statuesRequest: controllerIMP.statuesRequest, widget:InkWell(
+            onTap: () {
+              controllerIMP.goToProductDetails(listsearchmodel[index]);
+            },
+            child: ListTile(
+              leading: CachedNetworkImage(
+                imageUrl: "${AppLinks.itemssimage}/${listsearchmodel[index]
+                    .itemsImage}", height: 50, width: 50,),
+              title: Text("${listsearchmodel[index].itemsName}"),
+              subtitle: Text("${listsearchmodel[index].itemsPrice}\$"),
+            ),
+          ));
+        });
       },
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

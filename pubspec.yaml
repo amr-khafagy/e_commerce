@@ -78,7 +78,9 @@ dependencies:
   flutter_svg: ^2.0.5
   flutter_otp_text_field: ^1.1.1
   lottie: ^1.4.1
-
+  flutter_ringtone_player: ^3.2.0
+  flutter_screenutil: ^5.7.0
+  rating_dialog: ^2.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

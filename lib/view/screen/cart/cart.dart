@@ -16,43 +16,43 @@ class Cart extends GetView<CartControllerIMP> {
     Get.put(CartControllerIMP());
     return SafeArea(
         child: Scaffold(
-            bottomNavigationBar: const CartBottomBar(),
-            body: GetBuilder<CartControllerIMP>(builder: (cartController) {
-              return HandlingDataView(
-                statuesRequest: cartController.statuesRequest,
-                widget: ListView(
-                  children: [
-                    const CartAppBar(),
-
-                    NumberOfItems(
-                        numberOfItemsOfCart: "${cartController.totalItems}"),
-                    ...List.generate(
-                        cartController.cartitems.length,
-                            (index) =>
-                            CardOfCart(
-                              itemImage:
-                              "${AppLinks.itemssimage}/${cartController
-                                  .cartitems[index].itemsImage}",
-                              itemName:
-                              "${cartController.cartitems[index].itemsName}",
-                              itemprice:
-                              "${cartController.cartitems[index].itemsPrice}",
-                              numberOfItem:
-                              "${cartController.cartitems[index].countitems}",
-                              addToCart: () async{
-                                await  cartController.addToCart(
-                                    cartController.cartitems[index].itemsId!);
-                                cartController.refreshpage();
-                              },
-                              removerFromCart: () async{
-                                await  cartController.removeFromCart(
-                                    cartController.cartitems[index].itemsId!);
-                                cartController.refreshpage();
-                              },
-                            ))
-                  ],
-                ),
-              );
-            },)));
+            bottomNavigationBar:
+                const CartBottomBar(),
+            body: GetBuilder<CartControllerIMP>(
+              builder: (cartController) {
+                return HandlingDataView(
+                  statuesRequest: cartController.statuesRequest,
+                  widget: ListView(
+                    children: [
+                      const CartAppBar(tittle:"My Cart"),
+                      NumberOfItems(
+                          numberOfItemsOfCart: "${cartController.totalItems}"),
+                      ...List.generate(
+                          cartController.cartitems.length,
+                          (index) => CardOfCart(
+                                itemImage:
+                                    "${AppLinks.itemssimage}/${cartController.cartitems[index].itemsImage}",
+                                itemName:
+                                    "${cartController.cartitems[index].itemsName}",
+                                itemprice:
+                                    "${cartController.cartitems[index].itemsprice}",
+                                numberOfItem:
+                                    "${cartController.cartitems[index].countitems}",
+                                addToCart: () async {
+                                  await cartController.addToCart(
+                                      cartController.cartitems[index].itemsId!);
+                                  cartController.refreshpage();
+                                },
+                                removerFromCart: () async {
+                                  await cartController.removeFromCart(
+                                      cartController.cartitems[index].itemsId!);
+                                  cartController.refreshpage();
+                                },
+                              ))
+                    ],
+                  ),
+                );
+              },
+            )));
   }
 }

@@ -27,10 +27,14 @@ class AppRoutes {
 
 //cart
   static const String cart = "/Cart";
-
 //address
   static const String addressview = "/View";
   static const String addressadd = "/Add";
   static const String completeAddress = "/CompleteAddress";
   static const String addressedit = "/Edit";
+  //ORDERS
+  static const String checkOut="/CheckOut";
+  static const String pending="/Orders";
+  static const String orderDetail="/OrderDetail";
+  static const String archieve="/archieve";
 }

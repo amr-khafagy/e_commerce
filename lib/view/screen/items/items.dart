@@ -14,19 +14,17 @@ class Items extends StatelessWidget {
     return Scaffold(
       body: Container(
           padding: const EdgeInsets.all(15),
-          child: GetBuilder<ItemsControllerIMP>(builder: (controller) {
-            return ListView(
-              children: [
-                const SizedBox(height: 20),
-                const ListCategoriesItem(),
-                GetBuilder<ItemsControllerIMP>(builder: (controller) {
-                  return HandlingDataView(
-                      statuesRequest: controller.statuesRequest,
-                      widget: const ListItems());
-                })
-              ],
-            );
-          })),
+          child: ListView(
+            children: [
+              const SizedBox(height: 20),
+              const ListCategoriesItem(),
+              GetBuilder<ItemsControllerIMP>(builder: (controller) {
+                return HandlingDataView(
+                    statuesRequest: controller.statuesRequest,
+                    widget: const ListItems());
+              })
+            ],
+          )),
     );
   }
 }

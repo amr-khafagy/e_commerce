@@ -11,50 +11,51 @@ class AddAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(AddAddressController());
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("ADD Address"),
-        ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {}, child: const Icon(Icons.add)),
-        body: Container(
-          child:
-              GetBuilder<AddAddressController>(builder: (addAddressController) {
-            return HandlingDataView(
-                statuesRequest: addAddressController.statuesRequest,
-                widget: Column(
-                  children: [
-                    if (addAddressController.kGooglePlex != null)
-                      Expanded(
-                          child: Stack(
-                        children: [
-                          GoogleMap(
-                            mapType: MapType.normal,
-                            markers: addAddressController.markers.toSet(),
-                            onTap: (latlong) {
-                              addAddressController.addMarkers(latlong);
-                            },
-                            initialCameraPosition:
-                                addAddressController.kGooglePlex!,
-                            onMapCreated: (GoogleMapController controller) {
-                              addAddressController.completerController
-                                  .complete(controller);
-                            },
-                          ),
-                          Positioned(
-                            bottom: 10,
-                            child: ButtonAuth(
-                              buttontext: "Complete",
-                              onpressed: () {
-                                addAddressController.goToCompleteAddress();
+    return GetBuilder<AddAddressController>(builder: (addAddressController) {
+      return Scaffold(
+          appBar: AppBar(
+            title: const Text("ADD Address"),
+          ),
+          floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                addAddressController.goToCompleteAddress();
+              },
+              child: const Icon(Icons.add)),
+          body: Container(
+              child: HandlingDataView(
+                  statuesRequest: addAddressController.statuesRequest,
+                  widget: Column(
+                    children: [
+                      if (addAddressController.kGooglePlex != null)
+                        Expanded(
+                            child: Stack(
+                          children: [
+                            GoogleMap(
+                              mapType: MapType.normal,
+                              markers: addAddressController.markers.toSet(),
+                              onTap: (latlong) {
+                                addAddressController.addMarkers(latlong);
+                              },
+                              initialCameraPosition:
+                                  addAddressController.kGooglePlex!,
+                              onMapCreated: (GoogleMapController controller) {
+                                addAddressController.completerController
+                                    .complete(controller);
                               },
                             ),
-                          )
-                        ],
-                      ))
-                  ],
-                ));
-          }),
-        ));
+                            Positioned(
+                              bottom: 10,
+                              child: ButtonAuth(
+                                buttontext: "Complete",
+                                onpressed: () {
+                                  addAddressController.goToCompleteAddress();
+                                },
+                              ),
+                            )
+                          ],
+                        ))
+                    ],
+                  ))));
+    });
   }
 }
