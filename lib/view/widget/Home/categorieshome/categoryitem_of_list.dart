@@ -5,6 +5,7 @@ import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +24,8 @@ class CategoryItemsHome extends GetView<HomeControllerIMP> {
                 color: AppColor.primarycolor,
                 borderRadius: BorderRadius.circular(20)),
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            width: 70,
-            height: 70,
+            width: 70.w,
+            height: 70.h,
             child: SvgPicture.network(
               "${AppLinks.categoriesimage}/${categoriesModel.categoriesImage}",
               color: AppColor.grey,
@@ -32,7 +33,7 @@ class CategoryItemsHome extends GetView<HomeControllerIMP> {
           ),
           Text(
             "${dataBaseTranslation(categoriesModel.categoriesNameAr, categoriesModel.categoriesName)}",
-            style: const TextStyle(color: Colors.black, fontSize: 13),
+            style:TextStyle(color: Colors.black, fontSize: 13.sp),
           )
         ],
       ),

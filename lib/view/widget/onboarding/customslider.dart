@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/onboardingcontroller.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class CustomSlider extends GetView<OnBoardingControllerImp> {
@@ -20,7 +21,7 @@ controller.onpagechanged(val);
                   onboardinglist[i].tittle!,
                   style:Theme.of(context).textTheme.headline1),
                 Image.asset(onboardinglist[i].image!,
-                    width: 200, height: 200, fit: BoxFit.cover),
+                    width: 200.w, height: 200.h, fit: BoxFit.cover),
                 Text(onboardinglist[i].content!,
                     style:Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.center),

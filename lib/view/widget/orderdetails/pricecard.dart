@@ -2,6 +2,7 @@ import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:ecommerce/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PriceCard extends StatelessWidget {
   final OrdersModel ordersModel;
@@ -11,13 +12,13 @@ class PriceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin:
-      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       child: Text(
         "Price:${ordersModel.ordersTotalprice}\$",
         textAlign: TextAlign.center,
-        style: const TextStyle(
+        style:TextStyle(
             color: AppColor.favoritecolor,
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w900),
       ),
     );

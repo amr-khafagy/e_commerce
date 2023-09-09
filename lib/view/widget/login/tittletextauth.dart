@@ -1,4 +1,6 @@
+import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TittleTextAuth extends StatelessWidget {
   final String tittletext;
@@ -8,7 +10,7 @@ class TittleTextAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Text(
       tittletext,
-      style: Theme.of(context).textTheme.headline1,
+      style:TextStyle(fontWeight: FontWeight.bold, fontSize: 28.sp,color: AppColor.black),
     );
   }
 }

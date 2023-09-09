@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String searchtext;
@@ -17,8 +18,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      margin:EdgeInsets.only(top: 10.h),
+      padding:EdgeInsets.symmetric(horizontal: 15.w),
       child: Row(
         children: [
           Expanded(
@@ -30,7 +31,7 @@ class CustomAppBar extends StatelessWidget {
                       icon: const Icon(Icons.search),
                       onPressed: onPressedSearch),
                   hintText: (searchtext),
-                  hintStyle: const TextStyle(fontSize: 18),
+                  hintStyle:TextStyle(fontSize: 18.sp),
                   border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10)),

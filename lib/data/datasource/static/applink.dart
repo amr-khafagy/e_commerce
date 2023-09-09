@@ -32,6 +32,8 @@ static const String addfavourite="$serverlink/favourite/add.php";
  static const String addToCart="$serverlink/cart/add.php";
  static const String countOfCartItems="$serverlink/cart/countofcartitems.php";
  static const String viewCartItems="$serverlink/cart/view.php";
+ static const String viewCountItems="$serverlink/cart/countitems.php";
+
 //address
 static const String addaddress="$serverlink/address/add.php";
  static const String deleteaddress="$serverlink/address/delete.php";

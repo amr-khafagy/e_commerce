@@ -5,6 +5,7 @@ import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/data/model/favouritemodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class FavouriteItems extends StatelessWidget {
@@ -20,20 +21,20 @@ class FavouriteItems extends StatelessWidget {
       },
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CachedNetworkImage(
                 imageUrl:"${AppLinks.itemssimage}/${favouritesmodel.itemsImage!}",
-                height: 80,
-                width: 80,
+                height: 80.h,
+                width: 80.w,
               ),
               //TODO CachedNetworkImage
               Text(
                 "${dataBaseTranslation(favouritesmodel.itemsNameAr, favouritesmodel.itemsName)}",
-                style: const TextStyle(color: Colors.grey, fontSize: 15),
+                style:TextStyle(color: Colors.grey, fontSize: 15.sp),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +42,7 @@ class FavouriteItems extends StatelessWidget {
                   Text(
                     "Rating: ${favouritesmodel.itemsRating}",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 15),
+                    style:TextStyle(fontSize: 15.sp),
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,8 +63,8 @@ class FavouriteItems extends StatelessWidget {
                 children: [
                   Text(
                     "${favouritesmodel.itemsPrice}\$",
-                    style: const TextStyle(
-                        color: AppColor.primarycolor, fontSize: 16),
+                    style:TextStyle(
+                        color: AppColor.primarycolor, fontSize: 16.sp),
                   ),
                   IconButton(
                       icon: const Icon(Icons.delete_outline_outlined),

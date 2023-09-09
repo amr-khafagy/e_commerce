@@ -20,7 +20,7 @@ class HomeScreenControllerIMP extends HomeScreenController {
     const Offers(),
     const NotificationPage()
   ];
-  List tittlebottombar = ["home", "Setting", "Profile", "Notification"];
+  List tittlebottombar = ["59".tr, "60".tr, "61".tr, "62".tr];
   List iconbottombar = [
     Icons.home,
     Icons.settings,

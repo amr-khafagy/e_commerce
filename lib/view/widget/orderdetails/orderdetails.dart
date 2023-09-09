@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderDetailsCard extends StatelessWidget {
  final List cartModel;
@@ -8,15 +9,15 @@ class OrderDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin:const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      margin:EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       child: Table(
         children: [
-          const TableRow(children: [
+          TableRow(children: [
             Text(
               "Item",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: AppColor.favoritecolor,
                   fontWeight: FontWeight.w900),
             ),
@@ -24,7 +25,7 @@ class OrderDetailsCard extends StatelessWidget {
               "QTY",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: AppColor.favoritecolor,
                   fontWeight: FontWeight.w900),
             ),
@@ -32,7 +33,7 @@ class OrderDetailsCard extends StatelessWidget {
               "Price",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: AppColor.favoritecolor,
                   fontWeight: FontWeight.w900),
             ),

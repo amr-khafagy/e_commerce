@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardOfCart extends StatelessWidget {
   final String itemImage;
@@ -22,7 +23,7 @@ class CardOfCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
       child: Column(
         children: [
           Card(
@@ -33,8 +34,8 @@ class CardOfCart extends StatelessWidget {
                   child: CachedNetworkImage(
                    imageUrl:itemImage,
                     fit: BoxFit.cover,
-                  width:120,
-                    height:120,
+                  width:120.w,
+                    height:120.h,
                   ),
                 ),
                 Expanded(
@@ -43,7 +44,7 @@ class CardOfCart extends StatelessWidget {
                       title: Text(itemName!),
                       subtitle: Text(
                         itemprice!,
-                        style: const TextStyle(fontSize: 20),
+                        style:  TextStyle(fontSize: 20.sp),
                       ),
                     )),
                 Column(

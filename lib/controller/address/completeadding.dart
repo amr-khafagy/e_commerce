@@ -12,7 +12,7 @@ class CompleteAddingController extends GetxController {
   TextEditingController? name;
   TextEditingController? city;
   TextEditingController? street;
-  StatuesRequest statuesRequest = StatuesRequest.loading;
+  StatuesRequest? statuesRequest;
   Addingaddress addingaddress = Addingaddress(Get.find());
   List data = [];
   MyServices myServices = Get.find();

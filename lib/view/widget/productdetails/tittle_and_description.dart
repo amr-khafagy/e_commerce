@@ -4,6 +4,7 @@ import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/view/widget/productdetails/priceandnumber.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class TitleAndDescription extends GetView<ProductDetailsControllerIMP> {
@@ -19,8 +20,8 @@ class TitleAndDescription extends GetView<ProductDetailsControllerIMP> {
                 controller.itemsModel.itemsName),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
-          const SizedBox(
-            height: 20,
+         SizedBox(
+            height: 20.h,
           ),
           Text(
             dataBaseTranslation(controller.itemsModel.itemsDescAr,
@@ -43,8 +44,8 @@ class TitleAndDescription extends GetView<ProductDetailsControllerIMP> {
             padding: EdgeInsets.symmetric(horizontal: Get.width / 3),
             shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: const Text(
-              "Go To Cart",
+            child:  Text(
+              "63".tr,
               style: TextStyle(color: Colors.white),
             ),
           )

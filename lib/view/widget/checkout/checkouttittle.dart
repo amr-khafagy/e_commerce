@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckoutTittleText extends StatelessWidget {
   final String checkoutTittle;
@@ -8,13 +9,13 @@ class CheckoutTittleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      padding:const EdgeInsets.symmetric(vertical: 20),
+      padding:EdgeInsets.symmetric(vertical: 20.h),
       child: Text(
         checkoutTittle,
-        style: const TextStyle(
+        style:  TextStyle(
             color: AppColor.primarycolor,
             fontWeight: FontWeight.bold,
-            fontSize: 20),
+            fontSize: 20.sp),
         textAlign: TextAlign.center,
       ),
     );

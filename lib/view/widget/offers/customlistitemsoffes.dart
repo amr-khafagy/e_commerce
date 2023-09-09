@@ -1,8 +1,6 @@
 import 'package:ecommerce/controller/favourite/favourite_controller.dart';
-import 'package:ecommerce/controller/items/itemscontroller.dart';
 import 'package:ecommerce/controller/offerscontroller.dart';
 import 'package:ecommerce/data/model/itemmodel.dart';
-import 'package:ecommerce/view/widget/itemswidget/customitem.dart';
 import 'package:ecommerce/view/widget/offers/offersCustomItems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

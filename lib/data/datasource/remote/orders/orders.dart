@@ -14,7 +14,9 @@ class OrdersData {
       String orderPrice,
       String couponId,
       String paymentMethod,
-      String coupondiscount) async {
+      String coupondiscount,
+      String ordersrating,
+      String ordersnoterating) async {
     var response = await crud.postData(AppLinks.checkOut, {
       "userid": userid,
       "addressid": addressid,
@@ -24,6 +26,8 @@ class OrdersData {
       "couponid": couponId,
       "paymentmethod": paymentMethod,
       "coupondiscount": coupondiscount,
+      "ordersrating": ordersrating,
+      "ordersnoterating":ordersnoterating,
     });
     return response.fold((l) => l, (r) => r);
   }

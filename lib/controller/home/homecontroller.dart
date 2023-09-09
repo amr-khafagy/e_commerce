@@ -53,8 +53,10 @@ class HomeControllerIMP extends HomeController {
   }
 
   @override
+
   getDataItems() async {
     statuesRequest = StatuesRequest.loading;
+    update();
     var response = await homeData.getDataItems();
     print("=============================== Controller ${response['data']} ");
     statuesRequest = handlingData(response);
@@ -71,6 +73,7 @@ class HomeControllerIMP extends HomeController {
   @override
   getHomeBanner() async {
     statuesRequest = StatuesRequest.loading;
+    update();
     var response = await homeData.getBanner();
     print("=============================== Controller ${response['data']} ");
     statuesRequest = handlingData(response);
@@ -87,6 +90,7 @@ class HomeControllerIMP extends HomeController {
   @override
   getData() async {
     statuesRequest = StatuesRequest.loading;
+   update();
     var response = await homeData.getDataCategories();
     print("=============================== Controller ${response['data']} ");
     statuesRequest = handlingData(response);
@@ -138,10 +142,10 @@ class HomeControllerIMP extends HomeController {
 
   @override
   void onInit() {
-    search = TextEditingController();
     getHomeBanner();
     getData();
     getDataItems();
+    search = TextEditingController();
     initialData();
     super.onInit();
   }

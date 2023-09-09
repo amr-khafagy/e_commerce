@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectLanguageButton extends StatelessWidget {
   final String buttontext;
@@ -15,7 +16,7 @@ class SelectLanguageButton extends StatelessWidget {
       shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child:  Text(
         buttontext,
-        style:const TextStyle(fontSize: 20, color: Colors.white),
+        style: TextStyle(fontSize: 20.sp, color: Colors.white),
       ),
 
     );

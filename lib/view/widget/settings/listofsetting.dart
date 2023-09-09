@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/setting/setting_control.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/screen/setting/settingdivider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,7 +13,7 @@ class ListOfSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     SettingcontrollIMP controller = Get.put(SettingcontrollIMP());
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 100),
+      padding:EdgeInsets.symmetric(horizontal: 10.w, vertical: 100.h),
       child: Card(
           child: Column(
         children: [

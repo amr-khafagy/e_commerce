@@ -1,5 +1,7 @@
 import 'package:ecommerce/controller/orders/orderarchieve.dart';
+import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 
@@ -13,22 +15,22 @@ void showDialogRating(BuildContext context,String ordersid) {
       builder: (context) => RatingDialog(
         initialRating: 1.0,
         // your app's name?
-        title: const Text(
+        title:  Text(
           'Rating Dialog',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 25,
+            fontSize: 25.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
         // encourage your user to leave a high rating?
-        message: const Text(
+        message:Text(
           'Tap a star to set your rating. Add more description here if you want.',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15.sp),
         ),
         // your app's logo?
-        image: Image.asset("assets/images/logo.png",width: 200,height: 200,),
+        image: Image.asset(AppImageAsset.logo,width: 200.w,height: 200.h,),
         submitButtonText: 'Submit',
         commentHint: 'Set your custom comment hint',
         onCancelled: () => print('cancelled'),

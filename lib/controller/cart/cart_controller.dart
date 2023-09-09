@@ -42,10 +42,10 @@ class CartControllerIMP extends CartController {
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            titleText: Text("59".tr,
+            titleText: Text("62".tr,
                 style: const TextStyle(color: AppColor.favoritecolor)),
             messageText: Text(
-              "60".tr,
+              "64".tr,
               style: const TextStyle(color: AppColor.primarycolor),
             ),
             icon: const Icon(
@@ -75,10 +75,10 @@ class CartControllerIMP extends CartController {
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            titleText: Text("59".tr,
+            titleText: Text("62".tr,
                 style: const TextStyle(color: AppColor.favoritecolor)),
             messageText: Text(
-              "61".tr,
+              "65".tr,
               style: const TextStyle(color: AppColor.primarycolor),
             ),
             icon: const Icon(
@@ -131,22 +131,21 @@ class CartControllerIMP extends CartController {
     }
     update();
   }
-  geCountPrice() async {
+  getCountItems() async {
     statuesRequest = StatuesRequest.loading;
     update();
     var response = await cartData
-        .viewCartItems(myServices.sharedPreferences.getString("id")!);
+        .viewCountItems(myServices.sharedPreferences.getString("id")!);
     statuesRequest = handlingData(response);
     print("===========${response["status"].toString()}===========");
     print("===========${statuesRequest.toString()}===========");
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == 'success') {
-
-        Map? dataResponseCountPrice = response['data'] as Map<dynamic,dynamic>;
-        print("##########${dataResponseCountPrice}");
-        totalItems=dataResponseCountPrice!["totalprice"];
-
-
+        Map? dataResponse = response['countprice'];
+        print("----------------${response['totalcount']}");
+        totalItems = int.parse(dataResponse!['totalcount']);
+        priceitems = double.parse(dataResponse['totalprice']);
+        print(priceitems);
       } else {
         StatuesRequest.failure;
       }
@@ -192,14 +191,15 @@ class CartControllerIMP extends CartController {
   refreshpage() {
     resetVarCart();
     getCartItems();
+    getCountItems();
   }
 
   @override
   void onInit() {
     getCartItems();
+    getCountItems();
     couponController = TextEditingController();
     getCoupon();
-    geCountPrice();
     refreshpage();
     super.onInit();
   }

@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentMethod extends StatelessWidget {
   final String paymentName;
@@ -12,17 +13,17 @@ class PaymentMethod extends StatelessWidget {
     return InkWell(
        onTap: onPaymentMethodTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        padding:EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        margin:EdgeInsets.symmetric(horizontal: 40.w, vertical: 10.h),
         decoration: BoxDecoration(
           border: Border.all(color:AppColor.primarycolor),
             color:isActive?AppColor.primarycolor:null,
             borderRadius: BorderRadius.circular(20)),
         child:  Text(
           paymentName,
-          style: const TextStyle(
+          style:  TextStyle(
               color: Colors.black,
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.bold),
         ),
       ),

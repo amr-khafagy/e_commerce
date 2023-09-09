@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/statusrequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/function/handlingdata.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/orders/orders.dart';
@@ -71,6 +72,11 @@ String ordersType(String val){
   }
   refreshorders(){
     getOrders();
+  }
+  goToTracking(OrdersModel ordersModel){
+    Get.toNamed(AppRoutes.ordersTracking,arguments: {
+      "ordersModel":ordersModel
+    });
   }
   @override
   void onInit() {

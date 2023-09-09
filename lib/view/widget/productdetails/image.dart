@@ -3,6 +3,7 @@ import 'package:ecommerce/controller/productdetails/productdetails_controller.da
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PositionedImage extends GetView<ProductDetailsControllerIMP> {
@@ -14,7 +15,7 @@ class PositionedImage extends GetView<ProductDetailsControllerIMP> {
       clipBehavior: Clip.none,
       children: [
         Container(
-            height: 200,
+            height: 200.h,
             decoration: BoxDecoration(
                 color: AppColor.primarycolor,
                 borderRadius: BorderRadius.circular(25))),
@@ -26,7 +27,7 @@ class PositionedImage extends GetView<ProductDetailsControllerIMP> {
               tag: "${controller.itemsModel.itemsId}",
               child: CachedNetworkImage(
                 imageUrl: '${AppLinks.itemssimage}/${controller.itemsModel.itemsImage!}',
-                height: 250,
+                height: 250.h,
                 fit: BoxFit.fill,
               )),
         ),

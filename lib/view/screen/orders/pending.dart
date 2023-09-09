@@ -17,20 +17,25 @@ class Pending extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(PendingOrdersController());
     return Scaffold(
-      body: GetBuilder<PendingOrdersController>(builder: (controller) {
-        return HandlingDataView(statuesRequest: controller.statuesRequest, widget:Column(
-          children: [
-            CartAppBar(tittle: "Orders"),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: controller.ordersList.length,
-              itemBuilder: (context, index) {
-                return OrdersCard(orderslistmodel: controller.ordersList[index]);
-              },
+      body: SafeArea(
+        child: GetBuilder<PendingOrdersController>(builder: (controller) {
+          return HandlingDataView(statuesRequest: controller.statuesRequest, widget:SingleChildScrollView(
+            child: Column(
+              children: [
+              const  CartAppBar(tittle: "Orders"),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: controller.ordersList.length,
+                  itemBuilder: (context, index) {
+                    return OrdersCard(orderslistmodel: controller.ordersList[index]);
+                  },
+                ),
+              ],
             ),
-          ],
-        ));
-      }),
+          ));
+        }),
+      ),
     );
   }
 }

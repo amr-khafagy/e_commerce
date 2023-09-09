@@ -1,5 +1,6 @@
 import 'package:ecommerce/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ShippingAddressCard extends StatelessWidget {
   final OrdersModel ordersModel;
@@ -8,8 +9,8 @@ class ShippingAddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(
-          vertical: 20, horizontal: 10),
+      margin:EdgeInsets.symmetric(
+          vertical: 20.h, horizontal: 10.w),
       child: ListTile(
         title: Text(
             ordersModel.addressName!),

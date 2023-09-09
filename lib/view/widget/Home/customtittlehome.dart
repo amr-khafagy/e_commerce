@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTittleHome extends StatelessWidget {
   final String tittle;
@@ -8,10 +9,10 @@ class CustomTittleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      margin:const EdgeInsets.symmetric(vertical:20),
+      margin:EdgeInsets.symmetric(vertical:20.h),
       child: Text(tittle,
-          style:const TextStyle(
-              fontSize: 20,
+          style: TextStyle(
+              fontSize: 20.sp,
               color: AppColor.primarycolor,
               fontWeight: FontWeight.bold)),
     );

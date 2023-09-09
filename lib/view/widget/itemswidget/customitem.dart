@@ -33,12 +33,12 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                   CachedNetworkImage(
                     imageUrl:
                         "${AppLinks.itemssimage}/${itemsModel.itemsImage!}",
-                    height: 80,
+                    height: 80.h,
                   ),
-                  //TODO CachedNetworkImage
+
                   Text(
                     "${dataBaseTranslation(itemsModel.itemsNameAr, itemsModel.itemsName)}",
-                    style: const TextStyle(color: Colors.grey, fontSize: 16),
+                    style:TextStyle(color: Colors.grey, fontSize: 15.sp),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,7 +46,7 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                       Text(
                         "Rating: ${itemsModel.itemsrating}",
                         textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 15),
+                        style:TextStyle(fontSize: 15.sp),
                       ),
                     ],
                   ),
@@ -54,8 +54,8 @@ class CustomItem extends GetView<ItemsControllerIMP> {
                     children: [
                       Text(
                         "${itemsModel.itemspricediscount}\$",
-                        style: const TextStyle(
-                            color: AppColor.primarycolor, fontSize: 16),
+                        style:TextStyle(
+                            color: AppColor.primarycolor, fontSize: 16.sp),
                       ),
                       GetBuilder<FavouriteControllerIMP>(
                           builder: (controller) => IconButton(
@@ -90,7 +90,7 @@ class CustomItem extends GetView<ItemsControllerIMP> {
               Positioned(
                 top: 4,
                right: 0,
-                child: Container(child: Image.asset(AppImageAsset.saleimage,width: 70,height: 70)),
+                child: Container(child: Image.asset(AppImageAsset.saleimage,width: 70.w,height: 70.h)),
               )
           ],
         ),

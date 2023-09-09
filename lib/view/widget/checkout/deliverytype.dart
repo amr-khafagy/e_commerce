@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DeliveryType extends StatelessWidget {
   final String deliveryImage;
@@ -14,10 +15,10 @@ class DeliveryType extends StatelessWidget {
     return InkWell(
       onTap: onDeliveytap,
       child: Container(
-        width:120,
-        height:120,
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        width:120.w,
+        height:120.h,
+        margin:  EdgeInsets.symmetric(horizontal: 10.w),
+        padding:  EdgeInsets.symmetric(vertical: 10.h),
         decoration:BoxDecoration(
           color: isActive?AppColor.primarycolor:null,
             borderRadius: BorderRadius.zero,
@@ -25,7 +26,7 @@ class DeliveryType extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.asset(deliveryImage,width: 60,),
+            Image.asset(deliveryImage,width: 60.w,),
              Text(deliveryName)
           ],
         ),

@@ -4,6 +4,7 @@ class MyTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          //onboarding
           "1": "اختر اللغة",
           "2": "اختر المنتجة",
           "3": "نحن لدينا 100 الف منتج  , اختر \n  منتجك  من  متجرنا",
@@ -12,6 +13,7 @@ class MyTranslation extends Translations {
           "6": "تتبع طلبك",
           "7": "يمكنك تتبع طلبك في كل مرحلة وايضا التتبع من خلال الخريطة",
           "8": "متابعه",
+          //auth
           "9": "تسجيل الدخول",
           "10": "اهلا بك",
           "11":
@@ -46,6 +48,7 @@ class MyTranslation extends Translations {
           "38": "التحقق من الرمز",
           "39": "ادحل الرمز وانتظر",
           "40": "تم التسجيل بنجاح",
+          //validation
           "41": "البريد الالكتروني غير صالح \nيجب ان يكون مثال@مثال.com",
           "42":
               " كلمة السر غير صالحة يجب ان تكون مكونة من \nاحرف صغيرة وكبيرة وارقام ورموز ",
@@ -62,12 +65,31 @@ class MyTranslation extends Translations {
           "53": "الاقسام",
           "54": "اوجد المنتج",
           "55": "الاكثر مبيعا",
-          "56": "عروض",
-          "57": "مفجأت الصيف",
-          "58": "استرداد النقود",
-          "59":"اشعار",
-          "60":"تم اضافة المنتج الي المفضلة",
-          "61":"تم حذف المنتج من المفضلة "
+          //notification
+          "56":"اشعار",
+          "57":"تم اضافة المنتج الي المفضلة",
+          "58":"تم حذف المنتج من المفضلة ",
+          //bottomappbar
+          "59":"الرئيسية",
+          "60":"الاعدادات",
+          "61": "عروض",
+          "62": "الاشعارات",
+          "63":"الذهاب الي عربة التسوق",
+          "64":"الاضافة الي عربة التسوق",
+          "65":"حذف من عربة التسوق",
+          //Cart
+          "66":"عربة التسوق",
+          "67":"انت لديك",
+          "68":"من العناصر في عربة التسوق",
+          "69":"كود الخصم",
+          "70":"تفعيل الكود",
+          "71":"الكود الخاص بك",
+          "72":"فعال",
+          "73":"السعر",
+          "74":"الخصم",
+          "75":"التوصيل",
+          "76":"الكلي",
+          "77":"تحديد موقع الطلب"
         },
         "en": {
           "1": "Choose Language",
@@ -130,12 +152,31 @@ class MyTranslation extends Translations {
           "53": "Categories",
           "54": "Find A Product",
           "55": "Top Selling",
-          "56": "Offers",
-          "57": "A Summer Surprise",
-          "58": "CashBack 20%",
-          "59":"Notification",
-          "60":"items added to favourite",
-          "61":"items removed from favourite"
+          "56":"Notification",
+          "57":"items added to favourite",
+          "58":"items removed from favourite",
+          //bottomappbar
+          "59":"Home",
+          "60":"Setting",
+          "61": "Offers",
+          "62": "Notifications",
+          //productDetails
+          "63":"Go To Cart",
+          "64":"Add To Cart",
+          "65":"Delete From Cart",
+          //Cart
+          "66":"My Cart",
+          "67":"You Have",
+          "68":"Items In Yourt Cart",
+          "69":"Coupon Code",
+          "70":"Apply Coupon",
+          "71":"Your code",
+          "72":"has been activated",
+          "73":"Price",
+          "74":"discount",
+          "75":"Shipping",
+          "76":"Total",
+          "77":"place order"
         }
       };
 }

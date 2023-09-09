@@ -10,6 +10,7 @@ import 'package:ecommerce/view/widget/login/havingaccountrow.dart';
 import 'package:ecommerce/view/widget/login/textformfieldauth.dart';
 import 'package:ecommerce/view/widget/login/tittletextauth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class Login extends StatelessWidget {
@@ -38,14 +39,14 @@ class Login extends StatelessWidget {
               key: controller.formstate,
               child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 35, vertical: 15),
+                    padding:  EdgeInsets.symmetric(
+                        horizontal: 35.w, vertical: 15.h),
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
                           Image.asset(
                             AppImageAsset.logo,
-                            height: 170,
+                            height: 170.h,
                           ),
                           TittleTextAuth(
                             tittletext: "10".tr,

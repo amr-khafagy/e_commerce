@@ -14,21 +14,20 @@ class Archieve extends StatelessWidget {
      Get.put(OrderArchieveController());
     return Scaffold(
       body: GetBuilder<OrderArchieveController>(builder: (controller) {
-        return HandlingDataView(statuesRequest: controller.statuesRequest, widget:Column(
-          children: [
-            Column(
-              children: [
-                const CartAppBar(tittle: "Archieve"),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: controller.ordersList.length,
-                  itemBuilder: (context, index) {
-                    return ArchieveOrdersCard(orderslistmodel: controller.ordersList[index]);
-                  },
-                ),
-              ],
-            ),
-          ],
+        return HandlingDataView(statuesRequest: controller.statuesRequest, widget:SingleChildScrollView(
+          child: Column(
+            children: [
+              const CartAppBar(tittle: "Archieve"),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: controller.ordersList.length,
+                itemBuilder: (context, index) {
+                  return ArchieveOrdersCard(orderslistmodel: controller.ordersList[index]);
+                },
+              ),
+            ],
+          ),
         ));
       }),
     );

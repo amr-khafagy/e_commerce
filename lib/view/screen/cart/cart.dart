@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/cart/cart_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/view/widget/cart/card_of_cart.dart';
 import 'package:ecommerce/view/widget/cart/cart_app_bar.dart';
@@ -16,15 +17,14 @@ class Cart extends GetView<CartControllerIMP> {
     Get.put(CartControllerIMP());
     return SafeArea(
         child: Scaffold(
-            bottomNavigationBar:
-                const CartBottomBar(),
+            bottomNavigationBar: const CartBottomBar(),
             body: GetBuilder<CartControllerIMP>(
               builder: (cartController) {
                 return HandlingDataView(
                   statuesRequest: cartController.statuesRequest,
                   widget: ListView(
                     children: [
-                      const CartAppBar(tittle:"My Cart"),
+                      CartAppBar(tittle: "66".tr),
                       NumberOfItems(
                           numberOfItemsOfCart: "${cartController.totalItems}"),
                       ...List.generate(
@@ -32,8 +32,9 @@ class Cart extends GetView<CartControllerIMP> {
                           (index) => CardOfCart(
                                 itemImage:
                                     "${AppLinks.itemssimage}/${cartController.cartitems[index].itemsImage}",
-                                itemName:
-                                    "${cartController.cartitems[index].itemsName}",
+                                itemName: dataBaseTranslation(
+                                    cartController.cartitems[index].itemsNameAr,
+                                    cartController.cartitems[index].itemsName),
                                 itemprice:
                                     "${cartController.cartitems[index].itemsprice}",
                                 numberOfItem:

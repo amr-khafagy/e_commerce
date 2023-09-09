@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountRow extends StatelessWidget {
   final String text;
@@ -13,20 +14,17 @@ class AccountRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(bottom: 20.h),
       child: Row(
         children: [
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: TextStyle(fontSize: 15.sp, color: AppColor.grey),
           ),
           InkWell(
             onTap: ontap,
             child: Text(inkwelltext,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(color: AppColor.primarycolor)),
+                style: TextStyle(fontSize:15.sp, color: AppColor.primarycolor)),
           )
         ],
       ),

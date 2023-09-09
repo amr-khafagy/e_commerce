@@ -5,6 +5,7 @@ import 'package:ecommerce/view/screen/setting/settingdivider.dart';
 import 'package:ecommerce/view/widget/cart/coupon.dart';
 import 'package:ecommerce/view/widget/cart/row_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CartBottomBar extends StatelessWidget {
@@ -15,7 +16,7 @@ class CartBottomBar extends StatelessWidget {
     Get.put(CartControllerIMP());
     return GetBuilder<CartControllerIMP>(builder: (controller) {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
@@ -28,45 +29,45 @@ class CartBottomBar extends StatelessWidget {
                     },
                   )
                 : Text(
-                    "Your code ${controller.couponCode} has been activated",
-                    style: const TextStyle(
-                        color: AppColor.primarycolor, fontSize: 20),
+                    "${"71".tr} ${controller.couponCode} ${"72".tr}",
+                    style: TextStyle(
+                        color: AppColor.primarycolor, fontSize: 20.sp),
                   ),
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              height: 10.h,
             ),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding:  EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
               decoration: BoxDecoration(
-                  border: Border.all(color: AppColor.primarycolor, width: 2),
+                  border: Border.all(color: AppColor.primarycolor, width: 2.w),
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CartRowBottomBar(
                       price: "${controller.priceitems}",
-                      titleOfPrice: "Price",
+                      titleOfPrice: "73".tr,
                     ),
                     CartRowBottomBar(
                       price: "${controller.discountCoupon}%",
-                      titleOfPrice: "discount",
+                      titleOfPrice: "74".tr,
                     ),
-                    const CartRowBottomBar(
-                      price: "10",
-                      titleOfPrice: "Shipping",
+                     CartRowBottomBar(
+                      price: "${controller.priceitems/5}",
+                      titleOfPrice: "75".tr,
                     ),
                     const SettingDivider(),
                     CartRowBottomBar(
                       price: "${controller.returnDiscount()}",
-                      titleOfPrice: "Total",
+                      titleOfPrice: "76".tr,
                     ),
                   ]),
             ),
             CartButton(
-              horizontal: 5,
-              vertical: 7,
-              nameButton: "place order",
+              horizontal: 5.w,
+              vertical: 7.h,
+              nameButton: "77".tr,
               onPressButton: () {
                 controller.gotoOrders();
               },

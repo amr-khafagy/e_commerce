@@ -4,6 +4,7 @@ import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/ordersmodel.dart';
 import 'package:ecommerce/view/screen/setting/settingdivider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
@@ -15,7 +16,7 @@ class OrdersCard extends GetView<PendingOrdersController> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,14 +25,13 @@ class OrdersCard extends GetView<PendingOrdersController> {
             children: [
               Text(
                 "Order Number:#${orderslistmodel.ordersId!}",
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
               ),
               Text(
-                Jiffy(orderslistmodel.ordersDatetime, "yyyy-mm-dd").fromNow(),
-                style: const TextStyle(
+                Jiffy(orderslistmodel.ordersDatetime).fromNow(),
+                style: TextStyle(
                     color: AppColor.favoritecolor,
-                    fontSize:18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold),
               )
             ],
@@ -72,20 +72,32 @@ class OrdersCard extends GetView<PendingOrdersController> {
                     fontWeight: FontWeight.bold,
                     color: AppColor.favoritecolor),
               ),
-              if(orderslistmodel.ordersStatues! == "0")
-              MaterialButton(
-                onPressed: () {
-                  controller.deleteOrder(orderslistmodel.ordersId!);
-                },
-                color: AppColor.favoritecolor,
-                child: const Text(
-                  "Delete",
-                  style: TextStyle(color: Colors.white),
+              if (orderslistmodel.ordersStatues! == "0")
+                MaterialButton(
+                  onPressed: () {
+                    controller.deleteOrder(orderslistmodel.ordersId!);
+                  },
+                  color: AppColor.favoritecolor,
+                  child: const Text(
+                    "Delete",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              ),
+              if (orderslistmodel.ordersStatues! == "3")
+                MaterialButton(
+                  onPressed: () {
+                    controller.goToTracking(orderslistmodel);
+                  },
+                  color: AppColor.favoritecolor,
+                  child: const Text(
+                    "Tracking",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               MaterialButton(
                 onPressed: () {
-                  Get.toNamed(AppRoutes.orderDetail,arguments: {"ordersmodel":orderslistmodel});
+                  Get.toNamed(AppRoutes.orderDetail,
+                      arguments: {"ordersmodel": orderslistmodel});
                 },
                 color: AppColor.favoritecolor,
                 child: const Text(

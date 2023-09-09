@@ -24,10 +24,9 @@ class NotificationPage extends StatelessWidget {
                         .notificationList[index].notificationTitle!),
                     subtitle: Text(notificationcontroller
                         .notificationList[index].notificationBody!),
-                    trailing: Text(Jiffy(
-                      notificationcontroller
-                          .notificationList[index].notificationDate!,
-                    "yyyy-mm-dd").fromNow()),
+                    trailing: Text(
+                      Jiffy(notificationcontroller
+                          .notificationList[index].notificationDate!).fromNow()),
                   ),
                 );
               },

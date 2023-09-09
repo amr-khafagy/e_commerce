@@ -22,7 +22,7 @@ class CompleteAdding extends StatelessWidget {
               builder: (completeAddingController) {
             return  Padding(
                   padding: const EdgeInsets.all(15),
-                  child: HandlingDataView(statuesRequest: completeAddingController.statuesRequest, widget:ListView(
+                  child: HandlingDataView(statuesRequest: completeAddingController.statuesRequest!, widget:ListView(
                     children: [
                       TextFormFieldAuth(
                           textlabelauth: "City",

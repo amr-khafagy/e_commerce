@@ -5,6 +5,7 @@ import 'package:ecommerce/data/model/ordersmodel.dart';
 import 'package:ecommerce/view/screen/setting/settingdivider.dart';
 import 'package:ecommerce/view/widget/checkout/dialograting.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
@@ -18,7 +19,7 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,13 +29,13 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
               Text(
                 "Order Number:#${orderslistmodel.ordersId!}",
                 style:
-                const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                 TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
               ),
               Text(
-                Jiffy(orderslistmodel.ordersDatetime, "yyyy-mm-dd").fromNow(),
-                style: const TextStyle(
+                Jiffy(orderslistmodel.ordersDatetime).fromNow(),
+                style:  TextStyle(
                     color: AppColor.favoritecolor,
-                    fontSize:18,
+                    fontSize:18.sp,
                     fontWeight: FontWeight.bold),
               )
             ],

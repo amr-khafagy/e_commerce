@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CartAppBar extends StatelessWidget {
@@ -11,8 +12,8 @@ class CartAppBar extends StatelessWidget {
     return AppBar(
       title:  Text(
         tittle,
-        style:const TextStyle(
-            color: AppColor.grey, fontSize: 30, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            color: AppColor.grey, fontSize: 30.sp, fontWeight: FontWeight.bold),
       ),
       backgroundColor: AppColor.backgroundcolor,
       leading: IconButton(

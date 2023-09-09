@@ -1,5 +1,7 @@
 import 'package:ecommerce/view/widget/cart/cart_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class CouponCode extends StatelessWidget {
  final TextEditingController couponController;
@@ -14,19 +16,19 @@ class CouponCode extends StatelessWidget {
             flex: 1,
             child: TextFormField(
               controller:couponController ,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                   isDense: true,
-                  hintText: "Coupon Cod",
-                  contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                  hintText: "69".tr,
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
                   border: OutlineInputBorder()),
             )),
-        const    SizedBox(width: 10,),
+            SizedBox(width: 10.w,),
         Expanded(
           flex: 1,
           child: CartButton(
-            horizontal: 8,
-            vertical:3,
-            nameButton: "Apply Coupon",
+            horizontal: 8.w,
+            vertical:3.h,
+            nameButton: "70".tr,
             onPressButton:onCouponApply,
           ),
         )

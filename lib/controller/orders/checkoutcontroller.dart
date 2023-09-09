@@ -53,8 +53,9 @@ class CheckOutController extends GetxController {
       couponId!.toString(),
       paymentMethod!.toString(),
       discountcoupon!.toString(),
+      "0",
+      " "
     );
-    print("====${addressId},${deliveryType},${priceitems},${couponId},${paymentMethod},${discountcoupon}=======");
     print("======================Controller ${response}");
     statuesRequest = handlingData(response);
     if (StatuesRequest.success == statuesRequest) {

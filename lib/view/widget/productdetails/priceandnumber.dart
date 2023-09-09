@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/productdetails/productdetails_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class NumberAndPrice extends GetView<ProductDetailsControllerIMP> {
@@ -20,8 +21,8 @@ class NumberAndPrice extends GetView<ProductDetailsControllerIMP> {
             IconButton(
                 onPressed:onMaximize, icon: const Icon(Icons.add)),
             Container(
-              width: 50,
-              height: 50,
+              width: 50.w,
+              height: 50.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -29,7 +30,7 @@ class NumberAndPrice extends GetView<ProductDetailsControllerIMP> {
                   child: Text(
                     numberOfProduct!,
                     textAlign: TextAlign.center,
-                    style:const TextStyle(color: AppColor.favoritecolor,fontSize:20),
+                    style:TextStyle(color: AppColor.favoritecolor,fontSize:20.sp),
                   )),
             ),
             IconButton(
@@ -39,9 +40,9 @@ class NumberAndPrice extends GetView<ProductDetailsControllerIMP> {
         ),
         Text(
           "${controller.itemsModel.itemsPrice!}\$",
-          style: const TextStyle(
+          style:TextStyle(
               color: AppColor.favoritecolor,
-              fontSize: 30,
+              fontSize: 30.sp,
               fontWeight: FontWeight.w500),
         ),
       ],

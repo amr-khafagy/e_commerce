@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/home/homecontroller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/model/itemmodel.dart';
 import 'package:ecommerce/view/screen/search/search.dart';
 import 'package:ecommerce/view/widget/Home/cashbackcontainer.dart';
@@ -48,10 +49,16 @@ class HomePage extends StatelessWidget {
                                   children: [
                                     if (controller.homeBanner.isNotEmpty)
                                       CashBackContainer(
-                                          tittle: controller.homeBanner[0]
-                                              ["banner_title"],
-                                          body: controller.homeBanner[0]
-                                              ["banner_desc"]),
+                                          tittle: dataBaseTranslation(
+                                              controller.homeBanner[0]
+                                                  ["banner_title_ar"],
+                                              controller.homeBanner[0]
+                                                  ["banner_title"]),
+                                          body: dataBaseTranslation(
+                                              controller.homeBanner[0]
+                                                  ["banner_desc_ar"],
+                                              controller.homeBanner[0]
+                                                  ["banner_desc"])),
                                     CustomTittleHome(tittle: "53".tr),
                                     const ListCategoriesHome(),
                                     CustomTittleHome(tittle: "55".tr),

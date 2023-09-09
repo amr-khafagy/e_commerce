@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextFormFieldAuth extends StatelessWidget {
   final String textlabelauth;
@@ -27,7 +28,7 @@ class TextFormFieldAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10, bottom: 10),
+      margin:EdgeInsets.only(top: 10.h, bottom: 10.h),
       child: TextFormField(
         obscureText:
             isshowpassword == null || isshowpassword == false ? false : true,

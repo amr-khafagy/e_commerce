@@ -9,6 +9,7 @@ import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/datasource/static/applink.dart';
 import 'package:ecommerce/data/model/itemmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class OffersCustomItem extends GetView<OffersController> {
@@ -32,12 +33,12 @@ class OffersCustomItem extends GetView<OffersController> {
                 children: [
                   CachedNetworkImage(imageUrl:
                   "${AppLinks.itemssimage}/${itemsModel.itemsImage!}",
-                    height: 80,
+                    height: 80.h,
                   ),
                   //TODO CachedNetworkImage
                   Text(
                     "${dataBaseTranslation(itemsModel.itemsNameAr, itemsModel.itemsName)}",
-                    style: const TextStyle(color: Colors.grey, fontSize: 16),
+                    style: TextStyle(color: Colors.grey, fontSize: 16.sp),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,7 +46,7 @@ class OffersCustomItem extends GetView<OffersController> {
                       Text(
                         "Rating: ${itemsModel.itemsrating}",
                         textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 15),
+                        style:TextStyle(fontSize: 15.sp),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,8 +66,8 @@ class OffersCustomItem extends GetView<OffersController> {
                     children: [
                       Text(
                         "${itemsModel.itemspricediscount}\$",
-                        style: const TextStyle(
-                            color: AppColor.primarycolor, fontSize: 16),
+                        style:TextStyle(
+                            color: AppColor.primarycolor, fontSize: 16.sp),
                       ),
                       GetBuilder<FavouriteControllerIMP>(
                           builder: (controller) => IconButton(
@@ -95,7 +96,7 @@ class OffersCustomItem extends GetView<OffersController> {
               Positioned(
                 top: 4,
                 right:0,
-                child: Image.asset(AppImageAsset.saleimage,width: 70,height: 70,),
+                child: Image.asset(AppImageAsset.saleimage,width: 70.w,height: 70.h,),
               )
 
           ],

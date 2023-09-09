@@ -4,6 +4,7 @@ import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/function/database_translation.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CategoryItem extends GetView<ItemsControllerIMP> {
@@ -21,7 +22,7 @@ class CategoryItem extends GetView<ItemsControllerIMP> {
           GetBuilder<ItemsControllerIMP>(
               builder: (controller) => Container(
                 padding:
-                const EdgeInsets.only(right: 10, left: 10, bottom: 5),
+                EdgeInsets.only(right: 10.w, left: 10.w, bottom: 5.h),
                 decoration: controller.selectedcat == i
                     ? const BoxDecoration(
                     border: Border(
@@ -31,7 +32,7 @@ class CategoryItem extends GetView<ItemsControllerIMP> {
                 child: Text(
                   "${dataBaseTranslation(categoriesModel.categoriesNameAr,categoriesModel.categoriesName)}",
                   style:
-                  const TextStyle(fontSize: 20, color: AppColor.grey),
+                  TextStyle(fontSize: 20.sp, color: AppColor.grey),
                 ),
               ))
         ],

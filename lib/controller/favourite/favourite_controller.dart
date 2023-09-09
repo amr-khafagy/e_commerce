@@ -42,8 +42,8 @@ class FavouriteControllerIMP extends FavouriteController {
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            titleText: Text("59".tr,style:const TextStyle(color: AppColor.favoritecolor)),
-            messageText: Text("60".tr,style:const TextStyle(color: AppColor.primarycolor),),
+            titleText: Text("56".tr,style:const TextStyle(color: AppColor.favoritecolor)),
+            messageText: Text("57".tr,style:const TextStyle(color: AppColor.primarycolor),),
             icon:const Icon(
               Icons.favorite,
               color: AppColor.favoritecolor,
@@ -67,8 +67,8 @@ class FavouriteControllerIMP extends FavouriteController {
     if (StatuesRequest.success == statuesRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            titleText: Text("59".tr,style:const TextStyle(color: AppColor.favoritecolor)),
-            messageText: Text("61".tr,style:const TextStyle(color: AppColor.primarycolor),),
+            titleText: Text("56".tr,style:const TextStyle(color: AppColor.favoritecolor)),
+            messageText: Text("58".tr,style:const TextStyle(color: AppColor.primarycolor),),
             icon:const Icon(
               Icons.favorite,
               color: AppColor.favoritecolor,
