@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/home/Home.dart';

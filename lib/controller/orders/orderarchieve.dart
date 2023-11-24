@@ -33,31 +33,31 @@ class OrderArchieveController extends GetxController {
 
   String ordersType(String val) {
     if (val == "0") {
-      return "delivery";
+      return "116".tr;
     } else {
-      return "Recive";
+      return "117".tr;
     }
   }
 
   String paymentmethod(String val) {
     if (val == "0") {
-      return "card";
+      return "118".tr;
     } else {
-      return "cash";
+      return "119".tr;
     }
   }
 
   String ordersStatues(String val) {
     if (val == "0") {
-      return "Pending Approval";
+      return "120".tr;
     } else if (val == "1") {
-      return "The order is pending prepare";
+      return "121".tr;
     } else if (val == "2") {
-      return "Ready to picked up by delivery man";
+      return "122".tr;
     } else if (val == "3") {
-      return "on the way";
+      return "123".tr;
     } else {
-      return "archieve";
+      return "124".tr;
     }
   }
 

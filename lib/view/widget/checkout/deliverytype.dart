@@ -21,7 +21,7 @@ class DeliveryType extends StatelessWidget {
         padding:  EdgeInsets.symmetric(vertical: 10.h),
         decoration:BoxDecoration(
           color: isActive?AppColor.primarycolor:null,
-            borderRadius: BorderRadius.zero,
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppColor.primarycolor)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

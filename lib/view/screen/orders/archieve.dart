@@ -17,7 +17,7 @@ class Archieve extends StatelessWidget {
         return HandlingDataView(statuesRequest: controller.statuesRequest, widget:SingleChildScrollView(
           child: Column(
             children: [
-              const CartAppBar(tittle: "Archieve"),
+              CartAppBar(tittle: "89".tr),
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

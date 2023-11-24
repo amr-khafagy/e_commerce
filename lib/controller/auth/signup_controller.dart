@@ -70,4 +70,4 @@ class SignUpControllIMP extends SignUpControll {
     password.dispose();
     super.dispose();
   }
-}
+  }

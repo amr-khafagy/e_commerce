@@ -18,12 +18,12 @@ class ListOfSettings extends StatelessWidget {
           child: Column(
         children: [
           ListTile(
-            title: const Text("Disable Notification"),
+            title:  Text("93".tr),
             trailing: Switch(onChanged: (val) {}, value: true),
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("Address"),
+            title:  Text("87".tr),
             trailing: const Icon(Icons.location_on_outlined),
             onTap: () {
               Get.toNamed(AppRoutes.addressview);
@@ -31,7 +31,7 @@ class ListOfSettings extends StatelessWidget {
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("orders"),
+            title:  Text("88".tr),
             trailing: const Icon(Icons.card_giftcard),
             onTap: () {
               Get.toNamed(AppRoutes.pending);
@@ -39,7 +39,7 @@ class ListOfSettings extends StatelessWidget {
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("archieve"),
+            title:Text("89".tr),
             trailing: const Icon(Icons.card_giftcard_sharp),
             onTap: () {
               Get.toNamed(AppRoutes.archieve);
@@ -47,13 +47,13 @@ class ListOfSettings extends StatelessWidget {
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("About Us"),
+            title: Text("90".tr),
             trailing: const Icon(Icons.help_outline_outlined),
             onTap: () {},
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("Contact Us"),
+            title:Text("91".tr),
             trailing: const Icon(Icons.phone_callback_outlined),
             onTap: () async{
               await launchUrl(Uri.parse("tel:+01027509759"));
@@ -61,7 +61,7 @@ class ListOfSettings extends StatelessWidget {
           ),
           const SettingDivider(),
           ListTile(
-            title: const Text("Logout"),
+            title:Text("92".tr),
             trailing: const Icon(Icons.logout_outlined),
             onTap: () {
               controller.logout();

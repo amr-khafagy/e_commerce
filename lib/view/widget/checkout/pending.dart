@@ -24,7 +24,7 @@ class OrdersCard extends GetView<PendingOrdersController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Order Number:#${orderslistmodel.ordersId!}",
+                "${"107".tr}:${orderslistmodel.ordersId!}",
                 style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
               ),
               Text(
@@ -37,27 +37,27 @@ class OrdersCard extends GetView<PendingOrdersController> {
             ],
           ),
           Text(
-            "Order type:${controller.ordersType(orderslistmodel.ordersType!)}",
+            "${"108".tr}:${controller.ordersType(orderslistmodel.ordersType!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Order Price:${orderslistmodel.ordersPrice!}",
+            "${"109".tr}:${orderslistmodel.ordersPrice!}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Delivery Price:${orderslistmodel.ordersPricedelivery!}",
+            "${"110".tr}:${orderslistmodel.ordersPricedelivery!}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "payment method:${controller.paymentmethod(orderslistmodel.ordersPaymentmethod!)}",
+            "${"111".tr}:${controller.paymentmethod(orderslistmodel.ordersPaymentmethod!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Status:${controller.ordersStatues(orderslistmodel.ordersStatues!)}",
+            "${"112".tr}:${controller.ordersStatues(orderslistmodel.ordersStatues!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
@@ -66,7 +66,7 @@ class OrdersCard extends GetView<PendingOrdersController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Total Price:#${orderslistmodel.ordersTotalprice!}",
+                "${"113".tr}:${orderslistmodel.ordersTotalprice!}",
                 style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -78,9 +78,9 @@ class OrdersCard extends GetView<PendingOrdersController> {
                     controller.deleteOrder(orderslistmodel.ordersId!);
                   },
                   color: AppColor.favoritecolor,
-                  child: const Text(
-                    "Delete",
-                    style: TextStyle(color: Colors.white),
+                  child:  Text(
+                    "130".tr,
+                    style:const TextStyle(color: Colors.white),
                   ),
                 ),
               if (orderslistmodel.ordersStatues! == "3")
@@ -89,9 +89,9 @@ class OrdersCard extends GetView<PendingOrdersController> {
                     controller.goToTracking(orderslistmodel);
                   },
                   color: AppColor.favoritecolor,
-                  child: const Text(
-                    "Tracking",
-                    style: TextStyle(color: Colors.white),
+                  child:  Text(
+                    "129".tr,
+                    style:const TextStyle(color: Colors.white),
                   ),
                 ),
               MaterialButton(
@@ -100,9 +100,9 @@ class OrdersCard extends GetView<PendingOrdersController> {
                       arguments: {"ordersmodel": orderslistmodel});
                 },
                 color: AppColor.favoritecolor,
-                child: const Text(
-                  "Details",
-                  style: TextStyle(color: Colors.white),
+                child:  Text(
+                  "114".tr,
+                  style:const TextStyle(color: Colors.white),
                 ),
               ),
             ],

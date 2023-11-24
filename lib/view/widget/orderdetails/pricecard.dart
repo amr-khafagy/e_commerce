@@ -3,6 +3,7 @@ import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:ecommerce/data/model/ordersmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class PriceCard extends StatelessWidget {
   final OrdersModel ordersModel;
@@ -14,7 +15,7 @@ class PriceCard extends StatelessWidget {
       margin:
       EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       child: Text(
-        "Price:${ordersModel.ordersTotalprice}\$",
+        "${"134".tr}:${ordersModel.ordersTotalprice}\$",
         textAlign: TextAlign.center,
         style:TextStyle(
             color: AppColor.favoritecolor,

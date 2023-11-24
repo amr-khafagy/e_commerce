@@ -19,92 +19,91 @@ class CheckOut extends StatelessWidget {
     Get.put(CheckOutController());
     return Scaffold(
       body: GetBuilder<CheckOutController>(builder: (checkoutcontroller) {
-        return HandlingDataView(statuesRequest:checkoutcontroller.statuesRequest,widget: ListView(
-          children: [
-            const CartAppBar(tittle:"Checkout"),
-            const CheckoutTittleText(checkoutTittle: "Choose Payment Method"),
-            PaymentMethod(
-                paymentName: "Cash",
-                isActive:
-                checkoutcontroller.paymentMethod == "0" ? true : false,
-                onPaymentMethodTap: () {
-                  checkoutcontroller.choosePaymentMethod("0");
-                }),
-            PaymentMethod(
-                paymentName: "Payment Cards",
-                isActive: checkoutcontroller.paymentMethod == "1"
-                    ? true
-                    : false,
-                onPaymentMethodTap: () {
-                  checkoutcontroller.choosePaymentMethod("1");
-                }),
-            const CheckoutTittleText(checkoutTittle: "Choose Delivery Type"),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+        return HandlingDataView(
+            statuesRequest: checkoutcontroller.statuesRequest,
+            widget: ListView(
               children: [
-                DeliveryType(
-                    onDeliveytap: () {
-                      checkoutcontroller.chooseDelivery("0");
-                    },
-                    isActive: checkoutcontroller.deliveryType == "0"
-                        ? true
-                        : false,
-                    deliveryImage: AppImageAsset.delivery,
-                    deliveryName: "Delivery"),
-                DeliveryType(
-                    onDeliveytap: () {
-                      checkoutcontroller.chooseDelivery("1");
-                    },
-                    isActive: checkoutcontroller.deliveryType == "1"
-                        ? true
-                        : false,
-                    deliveryImage: AppImageAsset.drivethru,
-                    deliveryName: "Delivery Thru")
-              ],
-            ),
-
-            if (checkoutcontroller.deliveryType == "0")
-              Column(
-                children: [
-                  const CheckoutTittleText(checkoutTittle: "Shipping Address"),
-                  if(checkoutcontroller.data.isEmpty)
-                    InkWell(
-                      onTap: (){Get.toNamed(AppRoutes.addressadd);},
-                      child: const Text("Please Adding Shipping Address\n Click Here"
-
-                      ),
-                    ),
-
-                  ...List.generate(
-                      checkoutcontroller.data.length,
-                          (index) => CheckoutShipping(
-                          cardOnTap: () {
-                            checkoutcontroller.chooseShippingAddress(
-                                checkoutcontroller.data[index].addressId!);
+                CartAppBar(tittle: "78".tr),
+                CheckoutTittleText(checkoutTittle: "80".tr),
+                PaymentMethod(
+                    paymentName: "79".tr,
+                    isActive:
+                        checkoutcontroller.paymentMethod == "0" ? true : false,
+                    onPaymentMethodTap: () {
+                      checkoutcontroller.choosePaymentMethod("0");
+                    }),
+                PaymentMethod(
+                    paymentName: "81".tr,
+                    isActive:
+                        checkoutcontroller.paymentMethod == "1" ? true : false,
+                    onPaymentMethodTap: () {
+                      checkoutcontroller.choosePaymentMethod("1");
+                    }),
+                CheckoutTittleText(checkoutTittle: "82".tr),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    DeliveryType(
+                        onDeliveytap: () {
+                          checkoutcontroller.chooseDelivery("0");
+                        },
+                        isActive: checkoutcontroller.deliveryType == "0"
+                            ? true
+                            : false,
+                        deliveryImage: AppImageAsset.delivery,
+                        deliveryName: "83".tr),
+                    DeliveryType(
+                        onDeliveytap: () {
+                          checkoutcontroller.chooseDelivery("1");
+                        },
+                        isActive: checkoutcontroller.deliveryType == "1"
+                            ? true
+                            : false,
+                        deliveryImage: AppImageAsset.drivethru,
+                        deliveryName: "84".tr)
+                  ],
+                ),
+                if (checkoutcontroller.deliveryType == "0")
+                  Column(
+                    children: [
+                      CheckoutTittleText(checkoutTittle: "85".tr),
+                      if (checkoutcontroller.data.isEmpty)
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed(AppRoutes.addressadd);
                           },
-                          addressTitle:
-                          checkoutcontroller.data[index].addressName!,
-                          addressSubTitle:
-                          "${checkoutcontroller.data[index].addressCity!}/${checkoutcontroller.data[index].addressStreet!}",
-                          isactive: checkoutcontroller.addressId ==
-                              checkoutcontroller.data[index].addressId!
-                              ? true
-                              : false)),
-                ],
-              ),
-            CartButton(
-              horizontal: 5,
-              vertical: 7,
-              nameButton: "Checkout",
-              onPressButton: () {
-                checkoutcontroller.checkOut();
-              },
-            )
-          ],
-        ));
+                          child: Text("86".tr),
+                        ),
+                      ...List.generate(
+                          checkoutcontroller.data.length,
+                          (index) => CheckoutShipping(
+                              cardOnTap: () {
+                                checkoutcontroller.chooseShippingAddress(
+                                    checkoutcontroller.data[index].addressId!);
+                              },
+                              addressTitle:
+                                  checkoutcontroller.data[index].addressName!,
+                              addressSubTitle:
+                                  "${checkoutcontroller.data[index].addressCity!}/${checkoutcontroller.data[index].addressStreet!}",
+                              isactive: checkoutcontroller.addressId ==
+                                      checkoutcontroller.data[index].addressId!
+                                  ? true
+                                  : false)),
+                    ],
+                  ),
+                CartButton(
+                  horizontal: 5,
+                  vertical: 7,
+                  nameButton: "78".tr,
+                  onPressButton: () {
+                    checkoutcontroller.checkOut();
+                  },
+                )
+              ],
+            ));
       }),
     );
   }

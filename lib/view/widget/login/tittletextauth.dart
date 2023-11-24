@@ -10,7 +10,7 @@ class TittleTextAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Text(
       tittletext,
-      style:TextStyle(fontWeight: FontWeight.bold, fontSize: 28.sp,color: AppColor.black),
+        style:TextStyle(fontWeight: FontWeight.bold, fontSize: 28.sp,color: AppColor.black),
     );
   }
 }

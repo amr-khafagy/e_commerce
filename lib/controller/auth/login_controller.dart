@@ -45,7 +45,7 @@ class LoginControllIMP extends LoginControll {
                 .setString("phone", response['data']['phone']);
             myServices.sharedPreferences.setString("step", '2');
             FirebaseMessaging.instance.subscribeToTopic("users");
-            FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+            FirebaseMessaging.instance.subscribeToTopic("users$userid");
 
             Get.offNamed(AppRoutes.homepage);
           } else {

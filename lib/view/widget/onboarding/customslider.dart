@@ -10,20 +10,19 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      controller: controller.pageController,
-        onPageChanged: (val){
-controller.onpagechanged(val);
+        controller: controller.pageController,
+        onPageChanged: (val) {
+          controller.onpagechanged(val);
         },
         itemBuilder: (context, i) => Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  onboardinglist[i].tittle!,
-                  style:Theme.of(context).textTheme.headline1),
+                Text(onboardinglist[i].tittle!,
+                    style: Theme.of(context).textTheme.headline1),
                 Image.asset(onboardinglist[i].image!,
                     width: 200.w, height: 200.h, fit: BoxFit.cover),
                 Text(onboardinglist[i].content!,
-                    style:Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.center),
               ],
             ),

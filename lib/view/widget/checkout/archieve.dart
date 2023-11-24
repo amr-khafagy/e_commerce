@@ -7,9 +7,8 @@ import 'package:ecommerce/view/widget/checkout/dialograting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:jiffy/jiffy.dart';
+
 
 class ArchieveOrdersCard extends GetView<OrderArchieveController> {
   final OrdersModel orderslistmodel;
@@ -27,7 +26,7 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Order Number:#${orderslistmodel.ordersId!}",
+                "${"107".tr}:${orderslistmodel.ordersId!}",
                 style:
                  TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold),
               ),
@@ -41,27 +40,27 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
             ],
           ),
           Text(
-            "Order type:${controller.ordersType(orderslistmodel.ordersType!)}",
+            "${"108".tr}:${controller.ordersType(orderslistmodel.ordersType!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Order Price:${orderslistmodel.ordersPrice!}",
+            "${"109".tr}:${orderslistmodel.ordersPrice!}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Delivery Price:${orderslistmodel.ordersPricedelivery!}",
+            "${"110".tr}:${orderslistmodel.ordersPricedelivery!}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "payment method:${controller.paymentmethod(orderslistmodel.ordersPaymentmethod!)}",
+            "${"111".tr}:${controller.paymentmethod(orderslistmodel.ordersPaymentmethod!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
-            "Status:${controller.ordersStatues(orderslistmodel.ordersStatues!)}",
+            "${"112".tr}:${controller.ordersStatues(orderslistmodel.ordersStatues!)}",
             style: const TextStyle(
                 fontSize: 15, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
@@ -70,7 +69,7 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "Total Price:#${orderslistmodel.ordersTotalprice!}",
+                "${"113".tr}:${orderslistmodel.ordersTotalprice!}",
                 style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -84,21 +83,21 @@ class ArchieveOrdersCard extends GetView<OrderArchieveController> {
                       Get.toNamed(AppRoutes.orderDetail,arguments: {"ordersmodel":orderslistmodel});
                     },
                     color: AppColor.favoritecolor,
-                    child: const Text(
-                      "Details",
-                      style: TextStyle(color: Colors.white),
+                    child:  Text(
+                      "114".tr,
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   if(orderslistmodel.ordersRating == "0")
                   MaterialButton(
                     onPressed: () {
                      showDialogRating(context,orderslistmodel.ordersId!);
                     },
                     color: AppColor.favoritecolor,
-                    child: const Text(
-                      "Rating",
-                      style: TextStyle(color: Colors.white),
+                    child:  Text(
+                      "115".tr,
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],

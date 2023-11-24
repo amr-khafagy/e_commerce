@@ -23,7 +23,7 @@ class OrderDetails extends StatelessWidget {
             statuesRequest: orderDetailsController.statuesRequest,
             widget: ListView(
               children: [
-                const CartAppBar(tittle: "Order Details"),
+                 CartAppBar(tittle: "131".tr),
                 OrderDetailsCard(cartModel: orderDetailsController.data),
                 PriceCard(ordersModel:orderDetailsController.ordersModel),
                 if (orderDetailsController.ordersModel.ordersType == "0")

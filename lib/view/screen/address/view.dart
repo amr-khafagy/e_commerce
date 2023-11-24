@@ -1,6 +1,5 @@
 import 'package:ecommerce/controller/address/viewcontroller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/addressmodel.dart';
 import 'package:ecommerce/view/widget/cart/cart_app_bar.dart';
@@ -24,7 +23,7 @@ class AddressView extends StatelessWidget {
             statuesRequest: viewController.statuesRequest,
             widget: Column(
               children: [
-                const CartAppBar(tittle: "List Of Address"),
+                 CartAppBar(tittle: "104".tr),
                 ListView.builder(
                     shrinkWrap: true,
                     itemCount: viewController.data.length,

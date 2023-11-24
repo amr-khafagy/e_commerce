@@ -9,10 +9,10 @@ import 'package:get/get.dart';
 class CompleteAddingController extends GetxController {
   String? lat;
   String? long;
-  TextEditingController? name;
-  TextEditingController? city;
-  TextEditingController? street;
-  StatuesRequest? statuesRequest;
+late  TextEditingController name;
+late  TextEditingController city;
+late  TextEditingController street;
+late  StatuesRequest statuesRequest;
   Addingaddress addingaddress = Addingaddress(Get.find());
   List data = [];
   MyServices myServices = Get.find();
@@ -30,9 +30,9 @@ class CompleteAddingController extends GetxController {
     update();
     var response = await addingaddress.addaddress(
         myServices.sharedPreferences.getString("id")!,
-        name!.text,
-        city!.text,
-        street!.text,
+        name.text,
+        city.text,
+        street.text,
         lat!,
         long!);
     print("======================Controller $response");
@@ -48,6 +48,7 @@ class CompleteAddingController extends GetxController {
     }
   }
 
+  @override
   void onInit() {
     initialData();
     super.onInit();

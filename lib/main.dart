@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
           getPages:routes,
           theme: controller.apptheme);
 
-    },designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,);
+      },designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,);
   }
 }

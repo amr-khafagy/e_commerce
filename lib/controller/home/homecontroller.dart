@@ -53,7 +53,6 @@ class HomeControllerIMP extends HomeController {
   }
 
   @override
-
   getDataItems() async {
     statuesRequest = StatuesRequest.loading;
     update();
@@ -90,7 +89,7 @@ class HomeControllerIMP extends HomeController {
   @override
   getData() async {
     statuesRequest = StatuesRequest.loading;
-   update();
+    update();
     var response = await homeData.getDataCategories();
     print("=============================== Controller ${response['data']} ");
     statuesRequest = handlingData(response);

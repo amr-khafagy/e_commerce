@@ -1,9 +1,12 @@
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/function/database_translation.dart';
+import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class OrderDetailsCard extends StatelessWidget {
- final List cartModel;
+ final List<CartModel> cartModel;
   const OrderDetailsCard({Key? key, required this.cartModel}) : super(key: key);
 
   @override
@@ -14,7 +17,7 @@ class OrderDetailsCard extends StatelessWidget {
         children: [
           TableRow(children: [
             Text(
-              "Item",
+              "132".tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20.sp,
@@ -22,7 +25,7 @@ class OrderDetailsCard extends StatelessWidget {
                   fontWeight: FontWeight.w900),
             ),
             Text(
-              "QTY",
+              "133".tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20.sp,
@@ -30,7 +33,7 @@ class OrderDetailsCard extends StatelessWidget {
                   fontWeight: FontWeight.w900),
             ),
             Text(
-              "Price",
+              "134".tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20.sp,
@@ -42,7 +45,7 @@ class OrderDetailsCard extends StatelessWidget {
               cartModel.length,
                   (index) => TableRow(children: [
                 Text(
-                  cartModel[index].itemsName!,
+                  dataBaseTranslation(cartModel[index].itemsNameAr!,cartModel[index].itemsName!),
                   textAlign: TextAlign.center,
                 ),
                 Text(

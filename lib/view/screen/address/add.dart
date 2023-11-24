@@ -14,7 +14,7 @@ class AddAddress extends StatelessWidget {
     return GetBuilder<AddAddressController>(builder: (addAddressController) {
       return Scaffold(
           appBar: AppBar(
-            title: const Text("ADD Address"),
+            title: Text("94".tr),
           ),
           floatingActionButton: FloatingActionButton(
               onPressed: () {
@@ -46,7 +46,7 @@ class AddAddress extends StatelessWidget {
                             Positioned(
                               bottom: 10,
                               child: ButtonAuth(
-                                buttontext: "Complete",
+                                buttontext: "95".tr,
                                 onpressed: () {
                                   addAddressController.goToCompleteAddress();
                                 },
